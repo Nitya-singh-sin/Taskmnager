@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const AuthContext = createContext()
 
-const API = axios.create({ baseURL: '/api' })
+const API = axios.create({ baseURL: import.meta.env.VITE_API_URL || '/api' })
 
 API.interceptors.request.use((config) => {
   const user = JSON.parse(localStorage.getItem('user') || 'null')
